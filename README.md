@@ -40,7 +40,7 @@ This project explores two influential research directions:
   - *Scattering flare* – simulated via Fourier optics with random aperture defects.  
   - *Reflective flare* – captured on a rotation stage with HDR imaging.  
 - **Training Pair Synthesis:**  
-  \( I_F = I_0 + F + \mathcal{N}(0,\sigma^2) \) (direct addition in linear space).  
+  ![eq1](https://latex.codecogs.com/png.latex?I_F%20=%20I_0%20+%20F%20+%20\mathcal{N}(0,%20\sigma^2))  
 - **Losses:** Combined **image loss** (L1 + perceptual) and **residual flare loss**.  
 - **Light Source Handling:** Mask saturated pixels (>0.99), ignore them in training, then feather original source back after inference.  
 
@@ -56,10 +56,12 @@ This project explores two influential research directions:
 - **ISP-Aware Data Synthesis:**
   - Convex blending in **inverse-gamma space** (instead of direct addition).  
   - Sigmoid **weight map** balances scene vs. flare, simulating **auto-exposure darkening**.  
-  - Noise sampled from \(0.01 \chi^2\).  
+  - Noise sampled from ![eqn](https://latex.codecogs.com/png.latex?0.01%20%5Cchi%5E2).  
+- **Convex Blending Equation:**  
+  ![eq2](https://latex.codecogs.com/png.latex?I%20=%20(1-W)%20%5Codot%20S%20+%20W%20%5Codot%20F%20+%20%5Cmathcal{N}(0,%20%5Csigma%5E2))  
 - **Threshold-Free Light Source Recovery:**  
-  - Use power-law blending:  
-    \( W = \text{norm}(I_{\text{illum}})^\alpha \), with \(\alpha \approx 15\).  
+  ![eq3](https://latex.codecogs.com/png.latex?W%20=%20%5Ctext%7Bnorm%7D(I_%7B%5Ctext%7Billum%7D%7D)%5E%7B%5Calpha%7D)  
+  - Typically \(\alpha = 15\).  
   - Recovers **multiple emitters** naturally, without threshold tuning.  
 - **Evaluation:** Tested on a **Consumer Electronics dataset** (10 devices, varied flare shapes).  
 
