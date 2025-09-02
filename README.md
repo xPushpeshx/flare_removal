@@ -1,3 +1,4 @@
+## Note - Project Shifted to Hugging Face with Demo ![](https://huggingface.co/spaces/xPushpeshx/flare_removal_2.0)
 ---
 title: Flare Removal 2.0
 emoji: 🌖
