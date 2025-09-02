@@ -1,0 +1,8 @@
+torch
+numpy
+gradio
+pillow
+segmentation-models-pytorch
+uvicorn
+pydantic
+fastapi
